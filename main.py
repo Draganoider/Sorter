@@ -49,7 +49,10 @@ class SortingVisualizer:
                     # Draw the current state for visualization
                     self.draw_bars()
                     # Play a beep sound after each swap
-                    #self.play_beep()
+                    #
+
+            self.play_beep()
+
 
 def main():
     root = tk.Tk()
