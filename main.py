@@ -3,18 +3,18 @@ import numpy as np
 import time
 import pygame
 
-# Initialize pygame
+
 pygame.init()
 
-# Constants
+
 NUM_BARS = 200
 BAR_WIDTH = 600 / NUM_BARS
 CANVAS_WIDTH = 600
 CANVAS_HEIGHT = 400
 
-# Load beep sound
+
 pygame.mixer.init()
-beep_sound = pygame.mixer.Sound("sound93.wav")  # Replace "beep.wav" with the path to your sound file
+beep_sound = pygame.mixer.Sound("sound93.wav")  
 
 class SortingVisualizer:
     def __init__(self, master, data):
@@ -44,12 +44,11 @@ class SortingVisualizer:
         for i in range(n):
             for j in range(0, n - i - 1):
                 if self.data[j] > self.data[j + 1]:
-                    # Swap the elements if they are in the wrong order
+                    
                     self.data[j], self.data[j + 1] = self.data[j + 1], self.data[j]
-                    # Draw the current state for visualization
+                    
                     self.draw_bars()
-                    # Play a beep sound after each swap
-                    #
+                   
 
             self.play_beep()
 
@@ -57,15 +56,11 @@ class SortingVisualizer:
 def main():
     root = tk.Tk()
 
-    # Generate random data
+    
     data_to_sort = np.random.randint(1, 100, NUM_BARS)
 
     visualizer = SortingVisualizer(root, data_to_sort)
-
-    # Display the initial state
     visualizer.draw_bars()
-
-    # Run the Bubble Sort algorithm and visualize the process
     visualizer.bubble_sort()
 
     root.mainloop()
